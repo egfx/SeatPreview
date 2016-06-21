@@ -8,8 +8,8 @@
  * Copyright 2015, Codrops
  * http://www.codrops.com
  */
-;(function(window) {
-
+;(function($$window) {
+	
 	'use strict';
 
 	/**
@@ -22,8 +22,8 @@
 	var lastTime = 0;
 	var prefixes = 'webkit moz ms o'.split(' ');
 	// get unprefixed rAF and cAF, if present
-	var requestAnimationFrame = window.requestAnimationFrame;
-	var cancelAnimationFrame = window.cancelAnimationFrame;
+	var requestAnimationFrame = $window.requestAnimationFrame;
+	var cancelAnimationFrame = $window.cancelAnimationFrame;
 	// loop through vendor prefixes and get prefixed rAF and cAF
 	var prefix;
 	for( var i = 0; i < prefixes.length; i++ ) {
@@ -31,9 +31,9 @@
 			break;
 		}
 		prefix = prefixes[i];
-		requestAnimationFrame = requestAnimationFrame || window[ prefix + 'RequestAnimationFrame' ];
-		cancelAnimationFrame  = cancelAnimationFrame  || window[ prefix + 'CancelAnimationFrame' ] ||
-		window[ prefix + 'CancelRequestAnimationFrame' ];
+		requestAnimationFrame = requestAnimationFrame || $window[ prefix + 'RequestAnimationFrame' ];
+		cancelAnimationFrame  = cancelAnimationFrame  || $window[ prefix + 'CancelAnimationFrame' ] ||
+		$window[ prefix + 'CancelRequestAnimationFrame' ];
 	}
 
 	// fallback to setTimeout and clearTimeout if either request/cancel is not supported
@@ -41,7 +41,7 @@
 		requestAnimationFrame = function( callback, element ) {
 			var currTime = new Date().getTime();
 			var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
-			var id = window.setTimeout( function() {
+			var id = $window.setTimeout( function() {
 				callback( currTime + timeToCall );
 			}, timeToCall );
 			lastTime = currTime + timeToCall;
@@ -49,7 +49,7 @@
 		};
 
 		cancelAnimationFrame = function( id ) {
-			window.clearTimeout( id );
+			$window.clearTimeout( id );
 		};
 	}
 
@@ -69,7 +69,7 @@
 	function getMousePos(e) {
 		var posx = 0;
 		var posy = 0;
-		if (!e) var e = window.event;
+		if (!e) var e = $window.event;
 		if (e.pageX || e.pageY) 	{
 			posx = e.pageX;
 			posy = e.pageY;
@@ -146,8 +146,8 @@
 		},
 		// controls whether the tilt is active or not
 		tilt = false,
-		// window sizes
-		winsize = {width: window.innerWidth, height: window.innerHeight},
+		// $window sizes
+		winsize = {width: $window.innerWidth, height: $window.innerHeight},
 		// width of one seat
 		seat_width = seats[0].offsetWidth,
 		// number of seats per row
@@ -264,9 +264,9 @@
 		// ended video event
 		video.addEventListener('ended', videoLoad);
 
-		// window resize: update window size
-		window.addEventListener('resize', throttle(function(ev) {
-			winsize = {width: window.innerWidth, height: window.innerHeight};
+		// $window resize: update $window size
+		$window.addEventListener('resize', throttle(function(ev) {
+			winsize = {width: $window.innerWidth, height: $window.innerHeight};
 			scaleRoom();
 		}, 10));
 	}
@@ -300,7 +300,7 @@
 		// change transition properties
 		applyRoomTransition();
 		// getComputedStyle: https://css-tricks.com/get-value-of-css-rotation-through-javascript/
-		var st = window.getComputedStyle(seat.parentNode, null),
+		var st = $window.getComputedStyle(seat.parentNode, null),
 			tr = st.getPropertyValue('-webkit-transform') ||
 				 st.getPropertyValue('-moz-transform') ||
 				 st.getPropertyValue('-ms-transform') ||
@@ -394,4 +394,4 @@
 
 	init();
 
-})(window);
+})($window);
