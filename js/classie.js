@@ -13,7 +13,7 @@
 /*jshint browser: true, strict: true, undef: true, unused: true */
 /*global define: false, module: false */
 
-( function( window ) {
+( function( $window ) {
 
 'use strict';
 
@@ -79,7 +79,7 @@ if ( typeof define === 'function' && define.amd ) {
   module.exports = classie;
 } else {
   // browser global
-  window.classie = classie;
+  $window.classie = classie;
 }
 
-})( window );
+})( $window );
