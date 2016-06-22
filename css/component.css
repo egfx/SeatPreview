@@ -45,7 +45,6 @@
 }
 
 .cube__side--back {
-  background: #232325;
   box-shadow: 0 0 0 1px #232325;
   -webkit-transform: translate3d(0, 0, -3000px);
   transform: translate3d(0, 0, -3000px);
