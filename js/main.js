@@ -9,7 +9,8 @@
  * http://www.codrops.com
  */
 ;(function(window) {
-	
+  timeout(function(){
+
 	debugger;
 	
 	'use strict';
@@ -395,5 +396,5 @@
 	}
 
 	init();
-
+  },250);
 })(window);
