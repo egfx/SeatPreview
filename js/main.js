@@ -9,7 +9,7 @@
  * http://www.codrops.com
  */
 ;(function(window) {
-  timeout(function(){
+  window.timeout(function(){
 
 	debugger;
 	
