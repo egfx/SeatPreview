@@ -222,6 +222,8 @@
 		planseats.forEach(function(planseat) {
 			planseat.addEventListener('click', onSeatSelect);
 		});
+		
+		window.clearTimeout( autoTilt );
 
 		// enabling/disabling the tilt
 		var onTiltCtrlClick = function() {
@@ -258,8 +260,6 @@
 			classie.add(playCtrl, 'action--faded');
 			zoomOutScreen(function() {
 				showTiltCtrl();
-				// trigger the tilt so you don't have to click it each time
-				setTimeout(function(){ angular.element(tiltCtrl).trigger('click'); }, 1000);
 			}); 
 		};
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
@@ -297,6 +297,8 @@
 		// show the seat´s perspective
 		previewSeat(seat);
 		
+		// trigger the tilt so you don't have to click it each time
+		var autoTilt = setTimeout(function(){ angular.element(tiltCtrl).trigger('click'); }, 250);
 	}
 
 	// preview perspective from the selected seat. Moves the camera to that position.
