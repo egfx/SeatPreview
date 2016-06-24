@@ -299,7 +299,7 @@
 	// preview perspective from the selected seat. Moves the camera to that position.
 	function previewSeat(seat) {
 		// disable tilt
-		disableTilt();
+		//disableTilt();
 		// change transition properties
 		applyRoomTransition();
 		// getComputedStyle: https://css-tricks.com/get-value-of-css-rotation-through-javascript/
