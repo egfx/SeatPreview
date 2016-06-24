@@ -260,7 +260,15 @@
 				showTiltCtrl();
 			}); 
 		};
+		
+		var onSelectScreen = function() {
+			classie.add(intro, 'intro--shown');
+			classie.remove(plan, 'plan--shown');
+			classie.remove(playCtrl, 'action--faded');
+		}
+		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
+		video.addEventListener('click', onSelectScreen);
 
 		// play video
 		playCtrl.addEventListener('click', videoPlay);
@@ -294,9 +302,6 @@
 		var seat = seats[planseats.indexOf(planseat)];
 		// show the seat´s perspective
 		previewSeat(seat);
-		
-		// trigger the tilt so you don't have to click it each time
-		window.setTimeout(function(){ angular.element(tiltCtrl).trigger('click'); }, 250);
 	}
 
 	// preview perspective from the selected seat. Moves the camera to that position.
