@@ -296,7 +296,8 @@
 		previewSeat(seat);
 		
 		// trigger the tilt so you don't have to click it each time
-		tiltCtrl.trigger('click');
+		jQuery(tiltCtrl).trigger('click');
+		enableTitle();
 	}
 
 	// preview perspective from the selected seat. Moves the camera to that position.
