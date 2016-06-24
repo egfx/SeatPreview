@@ -262,9 +262,9 @@
 		};
 		
 		var onSelectScreen = function() {
-			classie.add(intro, 'intro--shown');
-			classie.remove(plan, 'plan--shown');
-			classie.remove(playCtrl, 'action--faded');
+			classie.toggle(intro, 'intro--shown');
+			classie.toggle(plan, 'plan--shown');
+			classie.toggle(playCtrl, 'action--faded');
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
