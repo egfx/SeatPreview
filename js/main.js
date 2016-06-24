@@ -258,6 +258,9 @@
 			classie.add(playCtrl, 'action--faded');
 			zoomOutScreen(function() {
 				showTiltCtrl();
+				// trigger the tilt so you don't have to click it each time
+				jQuery(tiltCtrl).trigger('click');
+				enableTilt();
 			}); 
 		};
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
@@ -295,9 +298,6 @@
 		// show the seat´s perspective
 		previewSeat(seat);
 		
-		// trigger the tilt so you don't have to click it each time
-		jQuery(tiltCtrl).trigger('click');
-		enableTilt();
 	}
 
 	// preview perspective from the selected seat. Moves the camera to that position.
