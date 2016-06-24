@@ -259,9 +259,7 @@
 			zoomOutScreen(function() {
 				showTiltCtrl();
 				// trigger the tilt so you don't have to click it each time
-				window.setTimeout(function(){
- -					jQuery(tiltCtrl).trigger('click');
- -				},1000);
+				setTimeout(function(){ angular.element(tiltCtrl).trigger('click'); }, 1000);
 			}); 
 		};
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
