@@ -222,8 +222,6 @@
 		planseats.forEach(function(planseat) {
 			planseat.addEventListener('click', onSeatSelect);
 		});
-		
-		window.clearTimeout( autoTilt );
 
 		// enabling/disabling the tilt
 		var onTiltCtrlClick = function() {
@@ -298,7 +296,7 @@
 		previewSeat(seat);
 		
 		// trigger the tilt so you don't have to click it each time
-		var autoTilt = setTimeout(function(){ angular.element(tiltCtrl).trigger('click'); }, 250);
+		window.setTimeout(function(){ angular.element(tiltCtrl).trigger('click'); }, 250);
 	}
 
 	// preview perspective from the selected seat. Moves the camera to that position.
