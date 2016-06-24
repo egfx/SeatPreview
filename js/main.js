@@ -259,8 +259,10 @@
 			zoomOutScreen(function() {
 				showTiltCtrl();
 				// trigger the tilt so you don't have to click it each time
-				jQuery(tiltCtrl).trigger('click');
-				enableTilt();
+				window.setTimeout(function(){
+					jQuery(tiltCtrl).trigger('click');
+					enableTilt();	
+				},1000);
 			}); 
 		};
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
