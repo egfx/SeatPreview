@@ -261,7 +261,7 @@
 			}); 
 		};
 		
-		var onSelectScreen = function() {
+		var onSelectScreen = function(event) {
 			classie.toggle(intro, 'intro--shown');
 			classie.toggle(plan, 'plan--shown');
 			classie.toggle(playCtrl, 'action--faded');
