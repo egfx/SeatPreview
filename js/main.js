@@ -186,8 +186,6 @@
 		},
 		// the current room transform
 		roomTransform = initTransform;
-		
-		window.video = video;
 
 	function init() {
 		// scale room to fit viewport
@@ -255,7 +253,6 @@
 
 		// select seats control click (intro button): show the room layout
 		var onSelectSeats = function() { 
-			window.video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
 			classie.add(playCtrl, 'action--faded');
@@ -273,16 +270,17 @@
 			zoomOutScreen(function() {
 				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				window.video.removeEventListner('click');
+				video.removeEventListner('click');
 			});
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
+		video.addEventListener('click', onSelectScreen);
 
 		// play video
 		playCtrl.addEventListener('click', videoPlay);
 		// ended video event
-		window.video.addEventListener('ended', videoLoad);
+		video.addEventListener('ended', videoLoad);
 
 		// window resize: update window size
 		window.addEventListener('resize', throttle(function(ev) {
