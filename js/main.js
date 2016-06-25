@@ -266,7 +266,9 @@
 			classie.toggle(plan, 'plan--shown');
 			classie.toggle(playCtrl, 'action--faded');
 			applyRoomTransform({'translateX' : 0, 'translateY' : 1000/3.5, 'translateZ' : 0, 'rotateX' : -15, 'rotateY' : 0});
-			zoomOutScreen();
+			zoomOutScreen(function() {
+				showTiltCtrl();
+			});
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
