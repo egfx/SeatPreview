@@ -271,7 +271,7 @@
 				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
 			});
-			video.removeEventListner('click');
+			video.removeEventListener('click');
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
