@@ -268,6 +268,7 @@
 			scaleRoom();
 			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
 			zoomOutScreen(function() {
+				applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
 				showTiltCtrl();
 			});
 		}
