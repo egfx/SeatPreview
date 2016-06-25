@@ -270,7 +270,7 @@
 			zoomOutScreen(function() {
 				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				video.removeEventListener('click', null);
+				//video.removeEventListener('click', null);
 			});
 		}
 		
