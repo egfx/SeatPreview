@@ -268,9 +268,8 @@
 			scaleRoom();
 			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 0, 'rotateX' : 0, 'rotateY' : 0});
 			zoomOutScreen(function() {
+				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
-				hideTiltCtrl();
 			});
 		}
 		
