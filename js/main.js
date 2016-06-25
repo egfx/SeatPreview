@@ -270,8 +270,8 @@
 			zoomOutScreen(function() {
 				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				this.removeEventListner('click');
 			});
+			video.removeEventListner('click');
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
