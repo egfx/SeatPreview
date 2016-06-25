@@ -253,6 +253,7 @@
 
 		// select seats control click (intro button): show the room layout
 		var onSelectSeats = function() { 
+			video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
 			classie.add(playCtrl, 'action--faded');
@@ -271,11 +272,10 @@
 				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
 			});
-			video.removeEventListener('click');
+			video.removeEventListener('click', null);
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
-		video.addEventListener('click', onSelectScreen);
 
 		// play video
 		playCtrl.addEventListener('click', videoPlay);
