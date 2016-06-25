@@ -268,8 +268,9 @@
 			scaleRoom();
 			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 0, 'rotateX' : 0, 'rotateY' : 0});
 			zoomOutScreen(function() {
+				disableTilt();
 				applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
-				showTiltCtrl();
+				hideTiltCtrl();
 			});
 		}
 		
@@ -290,6 +291,10 @@
 
 	function showTiltCtrl() {
 		classie.add(tiltCtrl, 'action--shown');
+	}
+	
+	function hideTiltCtrl() {
+		classie.remove(tiltCtrl, 'action--shown').add('action--faded');
 	}
 
 	// select a seat on the seat plan
