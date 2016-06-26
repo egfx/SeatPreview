@@ -262,19 +262,21 @@
 		};
 		
 		var onSelectScreen = function(event) {
-			classie.remove(intro, 'intro--shown');
-			classie.remove(plan, 'plan--shown');
-			classie.toggle(playCtrl, 'action--faded');
-			scaleRoom();
-			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
-			disableTilt();
-			video.removeEventListener('click', null);
-			//window.setTimeout( function(){ applyRoomTransform({'translateZ' : 1300}); }, 3000);
-			/*zoomOutScreen(function() {
-				applyRoomTransform({'translateZ' : 1300});
+			if(!tilt){
+				classie.toggle(intro, 'intro--shown');
+				classie.toggle(plan, 'plan--shown');
+				classie.toggle(playCtrl, 'action--faded');
+				scaleRoom();
+				applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
 				disableTilt();
 				video.removeEventListener('click', null);
-			});*/
+				//window.setTimeout( function(){ applyRoomTransform({'translateZ' : 1300}); }, 3000);
+				/*zoomOutScreen(function() {
+					applyRoomTransform({'translateZ' : 1300});
+					disableTilt();
+					video.removeEventListener('click', null);
+				});*/
+			}
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
