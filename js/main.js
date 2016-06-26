@@ -262,8 +262,8 @@
 		};
 		
 		var onSelectScreen = function(event) {
-			classie.toggle(intro, 'intro--shown');
-			classie.toggle(plan, 'plan--shown');
+			classie.remove(intro, 'intro--shown');
+			classie.remove(plan, 'plan--shown');
 			classie.toggle(playCtrl, 'action--faded');
 			scaleRoom();
 			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
