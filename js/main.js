@@ -269,8 +269,9 @@
 			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 0, 'rotateX' : 0, 'rotateY' : 0});
 			applyRoomTransform({'translateZ' : 1300});
 			zoomOutScreen(function() {
+				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				video.removeEventListener('click', null);
+				//video.removeEventListener('click', null);
 			});
 		}
 		
