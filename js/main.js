@@ -301,7 +301,7 @@
 	}
 	
 	function hideTiltCtrl() {
-		classie.remove(tiltCtrl, 'action--shown').add('action--faded');
+		classie.remove(tiltCtrl, 'action--shown');
 	}
 
 	// select a seat on the seat plan
