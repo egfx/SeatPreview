@@ -401,7 +401,7 @@
 	function disableTilt() {
 		classie.add(tiltCtrl, 'action--disabled');
 		tilt = false;
-		classie.remove(tiltCtrl, 'action--shown');
+		hideTiltCtrl();
 	}
 
 	function enableTilt() {
