@@ -296,6 +296,10 @@
 		classie.add(tiltCtrl, 'action--shown');
 	}
 	
+	function toggleTiltCtrl() {
+		classie.toggle(tiltCtrl, 'action--shown');
+	}
+	
 	function hideTiltCtrl() {
 		classie.remove(tiltCtrl, 'action--shown').add('action--faded');
 	}
@@ -397,6 +401,7 @@
 	function disableTilt() {
 		classie.add(tiltCtrl, 'action--disabled');
 		tilt = false;
+		toggleTiltCtrl();
 	}
 
 	function enableTilt() {
