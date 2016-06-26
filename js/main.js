@@ -266,13 +266,13 @@
 			classie.toggle(plan, 'plan--shown');
 			classie.toggle(playCtrl, 'action--faded');
 			scaleRoom();
-			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 0, 'rotateX' : 0, 'rotateY' : 0});
-			applyRoomTransform({'translateZ' : 1300});
-			zoomOutScreen(function() {
+			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
+			window.setTimeout( function(){ applyRoomTransform({'translateZ' : 1300}); }, 3000);
+			/*zoomOutScreen(function() {
 				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				//video.removeEventListener('click', null);
-			});
+				video.removeEventListener('click', null);
+			});*/
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
