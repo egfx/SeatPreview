@@ -239,8 +239,8 @@
 }
 
 .plan {
-  top: 0;
-  right: 0;
+  top: 120px;
+  right: 20px;
   padding: 10px 20px;
   position: fixed;
   z-index: 1000;
