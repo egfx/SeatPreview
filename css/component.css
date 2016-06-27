@@ -240,7 +240,7 @@
 
 .plan {
   top: 120px;
-  right: 20px;
+  right: 0px;
   padding: 10px 20px;
   position: fixed;
   z-index: 1000;
@@ -256,6 +256,7 @@
 .plan--shown {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
+  right: 20px;
   /* scale avoids flickering */
 }
 
