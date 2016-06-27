@@ -259,17 +259,22 @@
 			classie.add(playCtrl, 'action--faded');
 			zoomOutScreen(function() {
 				showTiltCtrl();
-			}); 
+				window.isImmersive = true;
+			});
 		};
 		
 		var onSelectScreen = function(event) {
-			video.removeEventListener('click', function(){return});
-			classie.toggle(intro, 'intro--shown');
-			classie.toggle(plan, 'plan--shown');
-			classie.toggle(playCtrl, 'action--faded');
-			scaleRoom();
-			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
-			disableTilt();
+			if(window.isImmersive){
+				classie.toggle(intro, 'intro--shown');
+				classie.toggle(plan, 'plan--shown');
+				classie.toggle(playCtrl, 'action--faded');
+				scaleRoom();
+				applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
+				disableTilt();
+				window.isImmersive = false;
+			} else {
+				onSelectSeats();
+			}
 			//window.setTimeout( function(){ applyRoomTransform({'translateZ' : 1300}); }, 3000);
 			/*zoomOutScreen(function() {
 				applyRoomTransform({'translateZ' : 1300});
