@@ -446,7 +446,7 @@
 		var el = document.documentElement,
 		      rfs = el.exitFullScreen
 			|| el.webkitExitFullScreen
-			|| el.mozCancelFullScreen,
+			|| el.mozCancelFullScreen
 			|| el.msExitFullScreen;
 			
 		rfs.call(el);
