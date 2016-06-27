@@ -252,36 +252,33 @@
 		document.addEventListener('mousemove', onMouseMove);
 
 		// select seats control click (intro button): show the room layout
-		var onSelectSeats = function() { 
+		var onSelectSeats = function() {
+			video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
 			classie.add(playCtrl, 'action--faded');
 			zoomOutScreen(function() {
 				showTiltCtrl();
-				window.isReset = false;
 			}); 
 		};
 		
 		var onSelectScreen = function(event) {
-			if(!window.isReset) {
-				classie.toggle(intro, 'intro--shown');
-				classie.toggle(plan, 'plan--shown');
-				classie.toggle(playCtrl, 'action--faded');
-				scaleRoom();
-				applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
+			video.removeEventListener('click', function(){return});
+			classie.toggle(intro, 'intro--shown');
+			classie.toggle(plan, 'plan--shown');
+			classie.toggle(playCtrl, 'action--faded');
+			scaleRoom();
+			applyRoomTransform({'translateX' : 0, 'translateY' : 0, 'translateZ' : 1300, 'rotateX' : 0, 'rotateY' : 0});
+			disableTilt();
+			//window.setTimeout( function(){ applyRoomTransform({'translateZ' : 1300}); }, 3000);
+			/*zoomOutScreen(function() {
+				applyRoomTransform({'translateZ' : 1300});
 				disableTilt();
-				window.isReset = true;
-				//window.setTimeout( function(){ applyRoomTransform({'translateZ' : 1300}); }, 3000);
-				/*zoomOutScreen(function() {
-					applyRoomTransform({'translateZ' : 1300});
-					disableTilt();
-					video.removeEventListener('click', null);
-				});*/
-			}
+				video.removeEventListener('click', null);
+			});*/
 		}
 		
 		selectSeatsCtrl.addEventListener('click', onSelectSeats);
-		video.addEventListener('click', onSelectScreen);
 
 		// play video
 		playCtrl.addEventListener('click', videoPlay);
