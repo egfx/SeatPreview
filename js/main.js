@@ -1,3 +1,7 @@
+jQuery('.js-trigger').on('click', function(){
+	jQuery('.plan').toggle();
+});
+
 /**
  * main.js
  * http://www.codrops.com
@@ -10,8 +14,6 @@
  */
 ;(function(window) {
   window.setTimeout(function(){
-
-	debugger;
 	
 	'use strict';
 
