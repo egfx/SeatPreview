@@ -444,7 +444,7 @@
 	
 	function exitFullScreen() {
 		var el = document.documentElement,
-		      rfs = el.el.exitFullScreen
+		      rfs = el.exitFullScreen
 			|| el.webkitExitFullScreen
 			|| el.mozCancelFullScreen,
 			|| el.msExitFullScreen;
