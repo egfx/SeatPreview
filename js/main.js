@@ -255,7 +255,7 @@
 
 		// select seats control click (intro button): show the room layout
 		var onSelectSeats = function() {
-			jQuery('#tytbar, output, .plan').fadeOut('800');
+			//jQuery('#tytbar, output, .plan').fadeOut('800');
 			video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
