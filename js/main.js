@@ -229,7 +229,6 @@
 				disableTilt();
 			}
 			else {
-				requestFullScreen();
 				jQuery('#tytbar, output, .plan').fadeOut('800');
 				enableTilt();
 			}
@@ -255,6 +254,7 @@
 		// select seats control click (intro button): show the room layout
 		var onSelectSeats = function() {
 			//jQuery('#tytbar, output, .plan').fadeOut('800');
+			requestFullScreen();
 			video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
