@@ -1,7 +1,3 @@
-jQuery('.js-trigger').on('click', function(){
-	jQuery('.plan').toggle();
-});
-
 /**
  * main.js
  * http://www.codrops.com
@@ -233,6 +229,7 @@ jQuery('.js-trigger').on('click', function(){
 				disableTilt();
 			}
 			else {
+				requestFullScreen();
 				jQuery('#tytbar, output, .plan').fadeOut('800');
 				enableTilt();
 			}
@@ -432,7 +429,36 @@ jQuery('.js-trigger').on('click', function(){
 		classie.add(playCtrl, 'action--shown');
 		video.load();
 	}
+	
+	function requestFullScreen() {
+	
+	  var el = document.body;
+	
+	  // Supports most browsers and their versions.
+	  var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen 
+	  || el.mozRequestFullScreen || el.msRequestFullScreen;
+	
+	  if (requestMethod) {
+	
+	    // Native full screen.
+	    requestMethod.call(el);
+	
+	  } else if (typeof window.ActiveXObject !== "undefined") {
+	
+	    // Older IE.
+	    var wscript = new ActiveXObject("WScript.Shell");
+	
+	    if (wscript !== null) {
+	      wscript.SendKeys("{F11}");
+	    }
+	  }
+	}
 
 	init();
   });
+  
+jQuery('.js-trigger').on('click', function(){
+	jQuery('.plan').toggle();
+});
+
 })(window);
