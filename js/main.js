@@ -231,6 +231,7 @@
 			else {
 				jQuery('#tytbar, output, .plan').fadeOut('800');
 				enableTilt();
+				requestFullScreen();
 			}
 		};
 		tiltCtrl.addEventListener('click', onTiltCtrlClick);
@@ -254,7 +255,7 @@
 		// select seats control click (intro button): show the room layout
 		var onSelectSeats = function() {
 			//jQuery('#tytbar, output, .plan').fadeOut('800');
-			requestFullScreen();
+			//requestFullScreen();
 			video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
@@ -431,27 +432,13 @@
 	}
 	
 	function requestFullScreen() {
-	
-	  var el = document.body;
-	
-	  // Supports most browsers and their versions.
-	  var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen 
-	  || el.mozRequestFullScreen || el.msRequestFullScreen;
-	
-	  if (requestMethod) {
-	
-	    // Native full screen.
-	    requestMethod.call(el);
-	
-	  } else if (typeof window.ActiveXObject !== "undefined") {
-	
-	    // Older IE.
-	    var wscript = new ActiveXObject("WScript.Shell");
-	
-	    if (wscript !== null) {
-	      wscript.SendKeys("{F11}");
-	    }
-	  }
+		var el = document.documentElement,
+		      rfs = el.requestFullScreen
+		        || el.webkitRequestFullScreen
+		        || el.mozRequestFullScreen
+		        || el.msRequestFullscreen;
+		
+		  rfs.call(el);
 	}
 
 	init();
