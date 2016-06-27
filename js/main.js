@@ -443,13 +443,13 @@
 	}
 	
 	function exitFullScreen() {
-		var el = document.documentElement,
-		      rfs = el.exitFullScreen
-			|| el.webkitExitFullScreen
-			|| el.mozCancelFullScreen
-			|| el.msExitFullScreen;
-			
-		rfs.call(el);
+		if(document.exitFullscreen) {
+		    document.exitFullscreen();
+		  } else if(document.mozCancelFullScreen) {
+		    document.mozCancelFullScreen();
+		  } else if(document.webkitExitFullscreen) {
+		    document.webkitExitFullscreen();
+		  }
 	}
 
 	init();
