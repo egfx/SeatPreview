@@ -227,9 +227,11 @@
 		var onTiltCtrlClick = function() {
 			// if tilt is enabled..
 			if( tilt ) {
+				jQuery('#tytbar, output, .plan').fadeIn('200');
 				disableTilt();
 			}
 			else {
+				jQuery('#tytbar, output, .plan').fadeOut('800');
 				enableTilt();
 			}
 		};
@@ -253,6 +255,7 @@
 
 		// select seats control click (intro button): show the room layout
 		var onSelectSeats = function() {
+			jQuery('#tytbar, output, .plan').fadeOut('800');
 			video.addEventListener('click', onSelectScreen);
 			classie.remove(intro, 'intro--shown');
 			classie.add(plan, 'plan--shown');
@@ -265,6 +268,7 @@
 		
 		var onSelectScreen = function(event) {
 			if(window.isImmersive){
+				jQuery('#tytbar, output, .plan').fadeIn('200');
 				classie.toggle(intro, 'intro--shown');
 				classie.toggle(plan, 'plan--shown');
 				classie.toggle(playCtrl, 'action--faded');
