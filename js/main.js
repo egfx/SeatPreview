@@ -268,6 +268,7 @@
 		
 		var onSelectScreen = function(event) {
 			if(window.isImmersive){
+				exitFullScreen();
 				jQuery('#tytbar, output, .plan').fadeIn('200');
 				classie.toggle(intro, 'intro--shown');
 				classie.toggle(plan, 'plan--shown');
@@ -439,6 +440,16 @@
 		        || el.msRequestFullscreen;
 		
 		  rfs.call(el);
+	}
+	
+	function exitFullScreen() {
+		var el = document.documentElement,
+		      rfs = el.el.exitFullScreen
+			|| el.webkitExitFullScreen
+			|| el.mozCancelFullScreen,
+			|| el.msExitFullScreen;
+			
+		rfs.call(el);
 	}
 
 	init();
