@@ -8,7 +8,7 @@
  * Copyright 2015, Codrops
  * http://www.codrops.com
  */
-;(function(window, $scope) {
+;(function(window) {
   window.setTimeout(function(){
 	
 	'use strict';
@@ -458,7 +458,5 @@
 jQuery('.js-trigger').on('click', function(){
 	jQuery('.plan').toggle();
 });
-
-jQuery('.intro__title').html('<em>"' + window.author + '" made </em>');
 
 })(window);
