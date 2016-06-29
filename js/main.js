@@ -8,7 +8,7 @@
  * Copyright 2015, Codrops
  * http://www.codrops.com
  */
-;(function(window) {
+;(function(window, $scope) {
   window.setTimeout(function(){
 	
 	'use strict';
@@ -461,4 +461,4 @@ jQuery('.js-trigger').on('click', function(){
 
 jQuery('.intro__title').html('<em>"' + $scope.channel.author + '" made </em>');
 
-})(window);
+})(window, $scope);
