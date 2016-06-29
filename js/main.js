@@ -459,4 +459,6 @@ jQuery('.js-trigger').on('click', function(){
 	jQuery('.plan').toggle();
 });
 
+jQuery('.intro__title').html('<em>"' + $scope.channel.author + '" made </em>');
+
 })(window);
