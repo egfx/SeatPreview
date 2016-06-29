@@ -461,4 +461,4 @@ jQuery('.js-trigger').on('click', function(){
 
 jQuery('.intro__title').html('<em>"' + $scope.channel.author + '" made </em>');
 
-})(window, $scope);
+})(window);
