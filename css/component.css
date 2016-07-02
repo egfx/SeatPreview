@@ -256,7 +256,8 @@
 .plan--shown {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-  right: 50px;
+  right: 75px;
+  top: 125px;
   /* scale avoids flickering */
 }
 
