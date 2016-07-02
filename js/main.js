@@ -137,7 +137,7 @@
 		// intro element
 		intro = monitor.querySelector('.intro'),
 		// 'select your seats' control
-		selectSeatsCtrl = intro.querySelector('button.action--seats'),
+		selectSeatsCtrl = intro.querySelector('button.activated'),
 		// the tilt control
 		tiltCtrl = document.querySelector('.action--lookaround'),
 		// how much the camera rotates when the user moves the mouse
